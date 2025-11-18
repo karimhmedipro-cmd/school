@@ -26,6 +26,15 @@ services:
       }'
     stdin_open: true
     tty: true
+    
+  app-frontend:
+    depends_on:
+      - app-backend
+    image: docker12051981/studentdashboard:1.0.0
+    #build : ./
+    restart: on-failure
+    ports:
+      - 8085:8085
 
 volumes:
   db :
